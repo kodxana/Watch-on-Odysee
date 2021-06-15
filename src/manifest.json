@@ -3,8 +3,6 @@
   "version": "1.7.2",
   "permissions": [
     "https://www.youtube.com/",
-    "https://invidio.us/channel/*",
-    "https://invidio.us/watch?v=*",
     "https://api.lbry.com/*",
     "https://lbry.tv/*",
     "tabs",
