@@ -24,7 +24,7 @@ function WatchOnLbryPopup() {
     <ButtonRadio value={redirect as string} options={redirectOptions}
       onChange={redirect => setSetting('redirect', redirect)} />
     <label className='radio-label'>Other useful tools:</label>
-    <a href='/tools/YTtoLBRY.html' target='_blank'>
+    <a href='/tools/YTtoOdysee.html' target='_blank'>
       <button type='button' className='btn1 button is-primary'>Subscriptions Converter</button>
     </a>
   </div>;

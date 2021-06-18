@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-.YTtoLBRY {
+.YTtoOdysee {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 1400px) {
-    .YTtoLBRY {
+    .YTtoOdysee {
         flex-direction: column;
     }
     .Conversion {

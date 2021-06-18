@@ -33,7 +33,7 @@
   },
   "web_accessible_resources": [
     "popup.html",
-    "tools/YTtoLBRY.html",
+    "tools/YTtoOdysee.html",
     "icons/lbry/lbry-logo.svg",
     "icons/lbry/odysee-logo.svg"
   ],

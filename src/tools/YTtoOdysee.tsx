@@ -41,10 +41,10 @@ function ConversionCard({ onSelect }: { onSelect(file: File): Promise<void> | vo
   </div>
 }
 
-function YTtoLBRY() {
+function YTtoOdysee() {
   const [lbryChannels, setLbryChannels] = useState([] as string[]);
 
-  return <div className='YTtoLBRY'>
+  return <div className='YTtoOdysee'>
     <div className='Conversion'>
       <ConversionCard onSelect={async file => setLbryChannels(await lbryChannelsFromFile(file))} />
       <ul>
@@ -59,4 +59,4 @@ function YTtoLBRY() {
   </div>
 }
 
-render(<YTtoLBRY />, document.getElementById('root')!);
+render(<YTtoOdysee />, document.getElementById('root')!);
