@@ -53,7 +53,7 @@ function YTtoLBRY() {
     </div>
     <div className='ConversionHelp'>
       <iframe width='712px' height='400px' allowFullScreen
-        src='https://lbry.tv/$/embed/howtouseconverter/c9827448d6ac7a74ecdb972c5cdf9ddaf648a28e' />
+        src='https://odysee.com/$/embed/howtouseconverter/c9827448d6ac7a74ecdb972c5cdf9ddaf648a28e' />
       <section dangerouslySetInnerHTML={{ __html: readme }} />
     </div>
   </div>
