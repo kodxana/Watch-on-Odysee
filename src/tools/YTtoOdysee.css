@@ -1,8 +1,8 @@
 body {
     --color-text: whitesmoke;
-    --color-backround: rgb(28, 31, 34);
-    --color-card: #2a2e32;
-    --color-primary: rgb(43, 187, 144);
+    --color-backround: rgb(20, 14, 27);
+    --color-card: #231830;
+    --color-primary: rgb(239, 25, 112);
 
     background-color: var(--color-backround);
     color: var(--color-text);
