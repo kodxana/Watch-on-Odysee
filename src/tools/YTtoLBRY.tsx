@@ -15,8 +15,18 @@ import readme from './README.md';
 async function lbryChannelsFromFile(file: File) {
   const ext = file.name.split('.').pop()?.toLowerCase();
   const content = await getFileContent(file);
+  const ids = new Set((() => {
+    switch(ext) {
+      case 'xml':
+      case 'opml':
+        return ytService.readOpml(content)
+      case 'json':
+        return ytService.readJson(content)
+      case 'csv':
+        return ytService.readCsv(content)
+    }
+  })())
 
-  const ids = new Set((ext === 'xml' || ext == 'opml' ? ytService.readOpml(content) : ytService.readJson(content)))
   const lbryUrls = await ytService.resolveById(...Array.from(ids).map(id => ({ id, type: 'channel' } as const)));
   const { redirect } = await getSettingsAsync('redirect');
   const urlPrefix = redirectDomains[redirect].prefix;
