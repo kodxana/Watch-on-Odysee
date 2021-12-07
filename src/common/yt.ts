@@ -77,6 +77,18 @@ export const ytService = {
   },
 
   /**
+   * Reads an array of YT channel IDs from the YT subscriptions CSV file
+   *
+   * @param jsonContents a CSV file as a string
+   * @returns the channel IDs
+   */
+   readCsv(csvContents: string): string[] {
+     const [,...subscriptions] = csvContents.trim().split('\n').map(line => line.split(',')[0])
+     return subscriptions;
+  },
+
+
+  /**
    * Extracts the channelID from a YT URL.
    *
    * Handles these two types of YT URLs:
