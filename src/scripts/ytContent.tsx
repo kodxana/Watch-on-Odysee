@@ -7,7 +7,7 @@ interface UpdaterOptions {
   /** invoked if a redirect should be performed */
   onRedirect?(ctx: UpdateContext): void
   /** invoked if a URL is found */
-  onURL?(ctx: UpdateContext): void
+  onURL?(ctx?: UpdateContext): void
 }
 
 interface ButtonSettings {
@@ -33,9 +33,9 @@ function openApp(url: string) {
 }
 
 /** Compute the URL and determine whether or not a redirect should be performed. Delegates the redirect to callbacks. */
-async function handleURLChange(ctx: UpdateContext, { onRedirect, onURL }: UpdaterOptions): Promise<void> {
+async function handleURLChange(ctx: UpdateContext | undefined, { onRedirect, onURL }: UpdaterOptions): Promise<void> {
   if (onURL) onURL(ctx);
-  if (ctx.enabled && onRedirect) onRedirect(ctx);
+  if (ctx && ctx.enabled && onRedirect) onRedirect(ctx);
 }
 
 /** Returns a mount point for the button */
@@ -83,12 +83,16 @@ function WatchOnLbryButton({ redirect = 'app', url }: { redirect?: LbrySettings[
 const mountPointPromise = findMountPoint();
 
 const handle = (ctx: UpdateContext) => handleURLChange(ctx, {
-  async onURL({ descriptor: { type }, url, redirect }) {
+  async onURL(ctx) {
+    if (!ctx) return;
+
+    const { descriptor: { type }, url, redirect } = ctx;
     const mountPoint = await mountPointPromise;
     if (type !== 'video' || !mountPoint) return;
     render(<WatchOnLbryButton url={url} redirect={redirect} />, mountPoint);
   },
-  onRedirect({ redirect, url }) {
+  onRedirect(ctx) {
+    const { redirect, url } = ctx;
     const domain = redirectDomains[redirect];
     if (redirect === 'app') return openApp(domain.prefix + url);
     location.replace(domain.prefix + url);
@@ -102,9 +106,9 @@ chrome.runtime.sendMessage({ url: location.href }, async (ctx: UpdateContext) =>
  * Gets messages from background script which relays tab update events. This is because there's no sensible way to detect
  * history.pushState changes from a content script
  */
-chrome.runtime.onMessage.addListener(async (ctx: UpdateContext) => {
+chrome.runtime.onMessage.addListener(async (ctx?: UpdateContext) => {
   mountPointPromise.then(mountPoint => mountPoint && render(<WatchOnLbryButton />, mountPoint))
-  if (!ctx.url) return;
+  if (!ctx || !ctx.url) return;
   handle(ctx);
 });
 
