@@ -1,8 +1,6 @@
 import { h, JSX, render } from 'preact';
 
-import { parseProtocolUrl } from '../common/lbry-url';
 import { LbrySettings, redirectDomains } from '../common/settings';
-import { YTDescriptor, ytService } from '../common/yt';
 import { UpdateContext } from './tabOnUpdated';
 
 interface UpdaterOptions {
