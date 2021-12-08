@@ -32,13 +32,6 @@ function openApp(url: string) {
   location.assign(url);
 }
 
-async function resolveYT(descriptor: YTDescriptor) {
-  const lbryProtocolUrl: string | null = await ytService.resolveById(descriptor).then(a => a[0]);
-  const segments = parseProtocolUrl(lbryProtocolUrl || '', { encode: true });
-  if (segments.length === 0) return;
-  return segments.join('/');
-}
-
 /** Compute the URL and determine whether or not a redirect should be performed. Delegates the redirect to callbacks. */
 async function handleURLChange(ctx: UpdateContext, { onRedirect, onURL }: UpdaterOptions): Promise<void> {
   if (onURL) onURL(ctx);
