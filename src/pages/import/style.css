@@ -1,0 +1,35 @@
+header {
+    display: grid;
+    gap: .5em;
+    padding: .75em;
+    position: sticky;
+    top: 0;
+    background: rgba(19, 19, 19, 0.5);
+    justify-items: center;
+}
+
+main {
+    display: grid;
+    gap: 2em;
+    padding: 1.5em 0.5em;
+}
+
+section {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: .75em;
+}
+
+section label {
+    font-size: 1.75em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#popup {
+    width: 35em;
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+}

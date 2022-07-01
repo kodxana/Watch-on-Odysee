@@ -1,0 +1,158 @@
+:root {
+    --color-master: #cf3352;
+    --color-slave: #f77937;
+    --color-error: rgb(245, 81, 69);
+    --color-gradient-0: linear-gradient(130deg, var(--color-master), var(--color-slave));
+    --color-gradient-1: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+    --color-dark: #0e1117;
+    --color-light: rgb(235, 237, 241);
+    --gradient-animation: gradient-animation 5s linear infinite alternate;
+}
+
+body {
+    font-size: .75rem;
+    font-family: Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+    letter-spacing: .2ch;
+}
+
+body#page {
+    --root-smallest-font-size: .95rem;
+    --root-font-size-relative-to-screen: 1;
+    font-size: max(var(--root-smallest-font-size), calc(min(1vw, 2vh) * var(--root-font-size-relative-to-screen)));
+}
+
+body {
+    background: linear-gradient(to left top, var(--color-master), var(--color-slave));
+    background-attachment: fixed;
+    color: var(--color-light);
+    padding: 0;
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(19, 19, 19, 0.75);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    position: relative;
+}
+
+a {
+    cursor: pointer;
+}
+
+p,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+pre {
+    margin: 0;
+    white-space: break-spaces;
+}
+
+.options {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(3em, 1fr));
+    justify-content: center;
+    gap: .25em;
+}
+
+.button {
+    display: inline-flex;
+    place-items: center;
+    place-content: center;
+    text-align: center;
+    padding: .5em 1em;
+
+    background: var(--color-dark);
+    color: var(--color-light);
+
+    border-radius: .5em;
+    border: unset;
+
+    font: inherit;
+    cursor: pointer;
+}
+
+.button.active {
+    background: var(--color-gradient-0);
+}
+
+.button.active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-gradient-0);
+    filter: blur(.5em);
+    z-index: -1;
+    border-radius: .5em;
+}
+
+.button.disabled {
+    filter: saturate(0);
+    pointer-events: none;
+}
+
+.filled {
+    background: var(--color-gradient-0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    color: transparent;
+}
+
+.error {
+    display: grid;
+    grid-auto-flow: column;
+    gap: .5em;
+    align-items: center;
+    justify-content: start;
+    color: var(--color-error);
+}
+
+.error::before {
+    content: "!";
+    width: 2em;
+    aspect-ratio: 1/1;
+
+    display: grid;
+    place-items: center;
+    letter-spacing: 0;
+    line-height: 0;
+
+    border: .1em solid currentColor;
+    border-radius: 100000vw;
+    font-weight: bold;
+}
+
+.overlay {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    inset: 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #0e1117;
+    opacity: .75;
+}

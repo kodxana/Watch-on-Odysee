@@ -1,17 +1,17 @@
 ## Looking for contributors :)
-![Logo](src/icons/wol/default-transparent.svg)
-# Watch on LBRY
+# Watch on Odysee
+![WOO_marquee promo tile 1400x560](https://user-images.githubusercontent.com/16674412/120082996-48100880-c0c6-11eb-83fe-526847c48026.jpg)
 
-A plugin for web browsers that brings more utility for LBRY Protocol by allowing you to find people you watch on YouTube that are availible on LBRY.tv/Odysee/Desktop App and other LBRY Protocol based apps/websites, allows you to easly check your subscribtion list and much more!
+A plugin for web browsers that brings more utility for LBRY Protocol by allowing you to find people you watch on YouTube that are available on Odysee, LBRY Desktop App and other LBRY Protocol based apps/websites, allows you to easly check your subscribtion list and much more!
 
 # Privacy
 
-This plugin is using LBRY Inc YouTube Sync API to check if video fot synchronized with LBRY Platform. For more informations read LBRY Inc Privacy Policy at [here](https://lbry.com/privacypolicy)
+This plugin is using LBRY Inc YouTube Sync API to check if video fot synchronized with LBRY Platform. For more informations read LBRY Inc Privacy Policy [here.](https://lbry.com/privacypolicy)
 
 ## Installation
 
-[![Get it on Firefox](doc/img/AMO-button_1.png)](https://addons.mozilla.org/en/firefox/addon/watch-on-lbry/?src=search)
-[![Get it on Chrome](doc/img/chrome-small-border.png)](https://chrome.google.com/webstore/detail/watch-on-lbry/jjmbbhopnjdjnpceiecihldbhibchgek)
+[![Get it on Firefox](doc/img/AMO-button_1.png)](https://addons.mozilla.org/en/firefox/addon/watch-on-odysee/)
+[![Get it on Chrome](doc/img/chrome-small-border.png)](https://chrome.google.com/webstore/detail/watch-on-odysee/kofmhmemalhemmpkfjhjfkkhifonoann?hl=en&authuser=0)
 
 ## Build
 
